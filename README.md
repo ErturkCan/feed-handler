@@ -1,12 +1,12 @@
 Feed Handler - Market Data Feed Processor
 ===========================================
 
-A high-performance, zero-copy market data feed processor designed for quantitative trading applications. Written in Rust with production-grade reliability and performance.
+A high-performance, zero-copy market data feed processor designed for quantitative trading applications. Written in Rust with reliability and performance.
 
 ## Features
 
 - **Binary Protocol**: SBE-inspired fixed-size message format with zero-copy decoding
-- **Zero-Copy Parsing**: Decoder returns references directly into input buffer—no allocations during decode
+- **Zero-Copy Parsing**: Decoder returns references directly into input buffer - no allocations during decode
 - **Order Book Management**: Efficient bid/ask price level tracking using BTreeMap
 - **Sequence Tracking**: Built-in gap detection for lost message recovery
 - **Snapshot Recovery**: Full book snapshots for recovery after communication gaps
@@ -119,21 +119,21 @@ This enables microsecond-latency message parsing. Message references are tied to
       │             │
       v             v
   GapDetector   OrderBook
-  - Sequence    - Bid levels
-    tracking    - Ask levels
-  - Gap ranges  - Order tracking
+ - Sequence   - Bid levels
+    tracking   - Ask levels
+ - Gap ranges - Order tracking
       │             │
       └──────┬──────┘
              v
    RecoveryManager
-   - Snapshot state
-   - Recovery logic
+  - Snapshot state
+  - Recovery logic
              │
              v
         FeedStats
-        - Throughput
-        - Latencies
-        - Gap counts
+       - Throughput
+       - Latencies
+       - Gap counts
 ```
 
 ## Usage Examples
